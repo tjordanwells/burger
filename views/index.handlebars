@@ -7,33 +7,43 @@
 	  <div class="col-md-4"></div>
   </div>
 </div>
-
 <h1 class="text-center title-font">Eat ze Burger</h1>
-
+<br>
 <div class="container">
 	<div class="row">
-		<div class="col-md-6" id="">
-			{{!-- <ul>
+		<div class="col-md-4"></div>
+		<div class="col-md-4" id="">
+			<table class="table table-bordered">
 				{{#each burgers}}
-					<li>{{burger_name}}</li>
+				<tbody>
+					<tr>
+						<td id="burger-data">
+							{{burger_name}}
+							<button type="button" class="btn btn-secondary float-right">Devour it!</button>
+						</td>
+					</tr>
+				</tbody>
 				{{/each}}
-			</ul> --}}
+			</table>
 		</div>
-		<div class="col-md-6" id="">
+		<div class="col-md-4" id="">
 
 		</div>
+		<div class="col-md-4"></div>
 	</div>
 </div>
-
+<br>
 <div class="container">
   <div class="row">
 	  <div class="col-md-4"></div>
+	  <br>
 		<form>
-			<div class="form-group">
+			<div class="form-group form-actions">
 				<input type="text" class="form-control" id="burger-input">
 				<small id="emailHelp" class="form-text text-muted">Enter the burger that you would like to eat and click the "Submit" button</small>
+				<br>
+				<button type="submit" class="btn btn-danger" id="submit">Submit</button>
 			</div>
-			<button type="submit" class="btn btn-danger">Submit</button>
 		</form>
 	  <div class="col-md-4"></div>
   </div>
