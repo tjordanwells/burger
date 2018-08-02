@@ -1,8 +1,8 @@
 $(function() {
-    $("#submit").on("submit", function(event) {
+    $("#submit").on("click", function(event) {
         event.preventDefault();
         var newBurger = {
-            name: $("#burger-input").val().trim(),
+            burger_name: $("#burger-input").val().trim()
         };
         console.log(newBurger);
         $.ajax("/api/burgers", {
@@ -15,4 +15,23 @@ $(function() {
             }
         );
     });
+
+    $(".devoured").on("click", function(event) {
+        event.preventDefault();
+
+        var id = $(this).data("id");
+        var isDevoured = $(this).data("devoured");
+
+        if (isDevoured === false) {
+            isDevoured = true;
+            $.ajax("/api/burgers/" + id, {
+                type: "PUT",
+                data: isDevoured
+            }).then(function() {
+                console.log("Devoured")
+            });
+        }
+
+    });
 });
+
