@@ -20,14 +20,17 @@ $(function() {
         event.preventDefault();
 
         var id = $(this).data("id");
-        var isDevoured = $(this).data("devoured");
+        var devoured = $(this).data("devoured");
+        console.log(id);
+        console.log(devoured);
 
-        console.log(isDevoured);
+        if (devoured === 0) {
 
-        if (isDevoured === 0) {
             $.ajax("/api/burgers/" + id, {
                 type: "PUT",
-                data: isDevoured
+                data: {
+                    devoured: 1
+                }
             }).then(function() {
                 console.log("Devoured")
             });
