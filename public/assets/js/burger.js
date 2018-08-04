@@ -25,8 +25,7 @@ $(function() {
         console.log(isDevoured);
 
         if (isDevoured === 0) {
-            isDevoured = 1;
-            $.ajax("/api/burgers" + id, {
+            $.ajax("/api/burgers/" + id, {
                 type: "PUT",
                 data: isDevoured
             }).then(function() {
