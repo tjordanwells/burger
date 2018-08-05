@@ -11,37 +11,38 @@
 <br>
 <div class="container">
 	<div class="row">
-		<div class="col-md-4"></div>
-		<div class="col-md-4" id="">
+		<div class="col-md-6" id="">
 			<table class="table table-bordered">
-				{{#each burgers}} {{#unless devoured}} {{> devoured=1}}
-				<tbody>
-					<tr>
-						<td id="burger-data">
-							{{burger_name}} {{!--
-							<button type="button" class="btn btn-secondary float-right devoured" data-id="{{id}}" data-devoured="{{devoured}}">Devour it!</button> --}}
-							<button class="btn btn-secondary float-right devoured" data-id="{{id}}" data-devoured="{{devoured}}">Devour It!
-							</button>
-						</td>
-					</tr>
-				</tbody>
-				{{/unless}} {{/each}}
+				{{#each burgers}}
+					{{#unless devoured}}
+						<tbody>
+							<tr>
+								<td id="burger-data">
+									{{burger_name}}
+									<button class="btn btn-secondary float-right devoured" data-id="{{id}}" data-devoured="{{devoured}}">Devour It!</button>
+								</td>
+							</tr>
+						</tbody>
+					{{/unless}}
+				{{/each}}
 			</table>
 		</div>
-		<div class="col-md-4" id="">
+		<div class="col-md-6" id="">
 			<table class="table table-bordered">
-				{{#each burgers}} {{#unless devoured}} {{> devoured=0}}
-				<tbody>
-					<tr>
-						<td id="burger-data">
-							{{burger_name}}
-						</td>
-					</tr>
-				</tbody>
-				{{/unless}} {{/each}}
+				{{#each burgers}}
+					{{#if devoured}}
+						<tbody>
+							<tr>
+								<td id="burger-data">
+									{{burger_name}}
+									<button class="btn btn-danger float-right delete" data-id="{{id}}" data-devoured="{{devoured}}">Delete</button>
+								</td>
+							</tr>
+						</tbody>
+					{{/if}}
+				{{/each}}
 			</table>
 		</div>
-		<div class="col-md-4"></div>
 	</div>
 </div>
 <br>

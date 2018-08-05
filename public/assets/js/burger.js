@@ -33,9 +33,23 @@ $(function() {
                 }
             }).then(function() {
                 console.log("Devoured")
+                location.reload();
             });
         }
 
+    });
+
+    $(".delete").on("click", function(event) {
+        event.preventDefault();
+        
+        var id = $(this).data("id");
+
+        $.ajax("/api/burgers/" + id, {
+            type: "DELETE"
+        }).then(function() {
+            console.log("Deleted " + id + " burger!")
+            location.reload();
+        });
     });
 });
 
